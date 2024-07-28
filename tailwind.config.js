@@ -1,4 +1,4 @@
-module.exports = {
+tailwind.config = {
   theme: {
     extend: {
       colors: {
@@ -9,6 +9,16 @@ module.exports = {
         gimletDisplayCompressed: ['Gimlet Display Compressed', 'serif'],
         gimletDisplayNarrow: ['Gimlet Display Narrow', 'serif'],
       },
+      transformOrigin: {
+        'center-center': 'center center',
+      },
+      transitionProperty: {
+        'transform': 'transform',
+      },
+      scale: {
+        '2.5': '2.5',
+        '10': '10',
+      },
     },
-  },
+  }
 }

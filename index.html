@@ -3,110 +3,158 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Load custom fonts from Typekit -->
   <link rel="stylesheet" href="https://use.typekit.net/deg1ywb.css">
+  <!-- Load Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
+    // Configure Tailwind CSS with custom settings
     tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            customOrange: '#FF6D00',
+        theme: {
+          extend: {
+            colors: {
+              customOrange: '#FF6D00',
+            },
+            fontFamily: {
+              gimletDisplay: ['Gimlet Display', 'serif'],
+              gimletDisplayCompressed: ['Gimlet Display Compressed', 'serif'],
+              gimletDisplayNarrow: ['Gimlet Display Narrow', 'serif'],
+            },
+            transformOrigin: {
+              'center-center': 'center center',
+            },
+            transitionProperty: {
+              'transform': 'transform',
+            },
+            scale: {
+              '2.5': '2.5',
+              '10': '10',
+            },
           },
-          fontFamily: {
-            gimletDisplay: ['Gimlet Display', 'serif'],
-            gimletDisplayCompressed: ['Gimlet Display Compressed', 'serif'],
-            gimletDisplayNarrow: ['Gimlet Display Narrow', 'serif'],
-          },
-        },
+        }
       }
-    }
   </script>
+  <!-- Load GSAP for animations -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" integrity="sha512-7eHRwcbYkK4d9g/6tD/mhkf++eoTHwpNM9woBxtPUBWm67zeAfFC+HrdoE2GanKeocly/VxeLvIqwvCdk7qScg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <!-- Load the main JavaScript file -->
+  <script src="main.js" defer></script>
+  <style>
+    /* Custom cursor styling */
+    .cursor {
+        position: fixed;
+        width: 40px;
+        height: 40px;
+        margin-left: -20px;
+        margin-top: -20px;
+        border-radius: 50%;
+        border: 2px solid black;
+        transition: transform .3s ease;
+        transform-origin: center center;
+        pointer-events: none;
+        z-index: 1000;
+    }
+    
+    /* Cursor grow animations */
+    .grow, .grow-small {
+        transform: scale(10);
+        background: #fff;
+        mix-blend-mode: difference;
+        border: none;
+    }
+    .grow-small {
+        transform: scale(2.5);
+    }
+  </style>
 </head>
 <body>
+  <!-- Custom cursor element -->
+  <div class="cursor"></div>
+  <!-- Example elements with cursor effects -->
+  <div class="cursor-scale grow"></div>
+  <div class="cursor-scale grow-small small"></div>
 
-    <div class="flex flex-row mt-4  ">
-        <div id=" logo" class="ml-[5px] 
-         bg-red-200 
-         text-center
-         font-gimletDisplayNarrow
-         text-6xl ">
-            
-            YEA.
-
-            
-        </div>
-        <div  class= "bg-green-100">
-            <div id="music-bar" class="bg-black
-             rounded-full
-            h-14 w-[20rem] 
- 
-            <!-- screen left and right margin -->
-            sm:ml-[9rem] sm:mr-[19rem]           <--          640px android phones           -->
-            md:ml-[5rem] md:mr-[5rem]           <--           768px  ipad and tablets                -->
-            lg:ml-[13rem] lg:mr-[13rem]           <--  	      1024px                               -->
-            xl:ml-[18rem] xl:mr-[20rem]            <--        1280px ipad and tablets           -->
-            2xl:ml-[27rem] 2xl:mr-[27rem]        <-- 	      1536px laptop and monitors          -->
-            
-            
-            <!-- bar width -->
-            sm:w-[20rem]
-            md:w-[30rem]
-            lg:w-[30rem]
-            xl:w-[40rem]
-            2xl:w-[40rem]"> 
-             
-                  <div class="flex flex-row">
-                    <div class=" ml-[2.5rem] mt-[5px]" > <img src="./samllprofileimage.svg" alt="smallprofileimage"></div>
-
-                    <div class="text-white text-center ml-[1rem]  mt-[13px]  font- text-lg font-semibold " >Try what make you sleepless</div>
-                    
-                    <div class=" ml-[15rem]  mt-[10px] " > <img src="./Music Wave.svg" alt="music wave"></div>
-                    
-                </div>
-                
-
-            </div>
-            
-            
-            
-            
-        </div>
-        <div id="time" class=" ml-[4px] mr-[5rem] text-center bg-blue-200">10:30</div>
+  <!-- Example HTML structure for testing cursor effects -->
+  <div class="flex flex-row mt-4 cursor-scale small">
+    <div id="logo" class="ml-[5px] text-center font-gimletDisplayNarrow text-6xl">
+      YEA.
     </div>
-    
-    
-    
+    <div class="">
+      <div id="music-bar" class="bg-black rounded-full h-14 w-[20rem]
+        sm:ml-[9rem] sm:mr-[19rem]
+        md:ml-[5rem] md:mr-[5rem]
+        lg:ml-[13rem] lg:mr-[13rem]
+        xl:ml-[18rem] xl:mr-[20rem]
+        2xl:ml-[27rem] 2xl:mr-[27rem]
+        sm:w-[20rem]
+        md:w-[30rem]
+        lg:w-[30rem]
+        xl:w-[40rem]
+        2xl:w-[40rem]">
+        <div class="flex flex-row">
+          <div class="ml-[2.5rem] mt-[5px]"><img src="./samllprofileimage.svg" alt="smallprofileimage"></div>
+          <div class="text-white text-center ml-[1rem] mt-[13px] text-lg font-semibold">Try what makes you sleepless</div>
+          <div class="ml-[15rem] mt-[10px]"><img src="./Music Wave.svg" alt="music wave"></div>
+        </div>
+      </div>
+    </div>
+    <div id="time" class="ml-[4px] mr-[5rem] text-center ">10:30</div>
+  </div>
 
-    
-</div>
+  <div id="profile_image" class="flex flex-row">
+    <img class="size-[500px]
+      sm:ml-[13rem] sm:mt-[2rem]
+      md:ml-[13rem] md:mt-[2rem]
+      lg:ml-[21rem] lg:mt-[2rem]
+      xl:ml-[30rem] xl:mt-[2rem]
+      2xl:ml-[40rem] 2xl:mt-[3rem]" src="./bigprofileimage.svg" alt="big profile image">
+    <div class="text-black text-6xl font-gimletDisplayNarrow ml-[1rem] mt-[2rem] font-light italic text-left 2xl:mt-[3rem]">
+      UI/UX Designer Developer
+    </div>
+  </div>
 
+  <script>
+    // Run this script after the DOM is fully loaded
+    document.addEventListener("DOMContentLoaded", function () {
+      // Select the custom cursor and elements with cursor effects
+      var cursor = document.querySelector('.cursor'),
+          cursorScale = document.querySelectorAll('.cursor-scale'),
+          mouseX = 0,
+          mouseY = 0;
 
-<div id="profile_image" class="flex flex-row  ">
- 
-    <img  class="size-[500px]
-    sm:ml-[13rem] sm:mt-[2rem]  
-    md:ml-[13rem] md:mt-[2rem] 
-    lg:ml-[21rem] lg:mt-[2rem] 
-    xl:ml-[30rem] xl:mt-[2rem]
-    2xl:ml-[40rem] 2xl:mt-[3rem]
-    " src="./bigprofileimage.svg" alt="big profile image">
-    
-    <div class="text-black 
-    text-6xl
-    font-gimletDisplayNarrow 
-    ml-[1rem] mt-[2rem] 
-    font-light italic 
-    text-left
-    2xl:mt-[3rem] " > UI/UX Designer Developer</div> 
+      // Animate the cursor position using GSAP
+      gsap.to({}, 0.016, {
+        repeat: -1,
+        onRepeat: function () {
+          gsap.set(cursor, {
+            css: {
+              left: mouseX,
+              top: mouseY
+            }
+          });
+        }
+      });
 
+      // Update mouse coordinates on mousemove
+      window.addEventListener("mousemove", function (e) {
+        mouseX = e.clientX;
+        mouseY = e.clientY;
+      });
 
-</div>
-
-</div>
-
-
-
-
-
+      // Add event listeners to elements with cursor effects
+      cursorScale.forEach(link => {
+        link.addEventListener('mouseleave', () => {
+          cursor.classList.remove('grow');
+          cursor.classList.remove('grow-small');
+        });
+        link.addEventListener('mousemove', () => {
+          cursor.classList.add('grow');
+          if (link.classList.contains('small')) {
+            cursor.classList.remove('grow');
+            cursor.classList.add('grow-small');
+          }
+        });
+      });
+    });
+  </script>
 </body>
 </html>
