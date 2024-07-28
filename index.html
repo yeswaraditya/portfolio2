@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://use.typekit.net/deg1ywb.css">
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
@@ -11,6 +12,11 @@
           colors: {
             customOrange: '#FF6D00',
           },
+          fontFamily: {
+            gimletDisplay: ['Gimlet Display', 'serif'],
+            gimletDisplayCompressed: ['Gimlet Display Compressed', 'serif'],
+            gimletDisplayNarrow: ['Gimlet Display Narrow', 'serif'],
+          },
         },
       }
     }
@@ -18,28 +24,85 @@
 </head>
 <body>
 
-    <div class="flex flex-row mt-4 ">
-        <div id=" logo" class="ml-[5px] mr-[4rem] bg-red-200">
+    <div class="flex flex-row mt-4  ">
+        <div id=" logo" class="ml-[5px] 
+         bg-red-200 
+         text-center
+         font-gimletDisplayNarrow
+         text-6xl ">
             
-            YEA
+            YEA.
 
             
         </div>
         <div  class= "bg-green-100">
-            <div id="music-bar" class="bg-black rounded-full  h-14 w-[20rem]  sm:ml-[9rem] sm:mr-[10rem]  sm:w-[20rem] lg:w-[30rem]">
+            <div id="music-bar" class="bg-black
+             rounded-full
+            h-14 w-[20rem] 
+ 
+            <!-- screen left and right margin -->
+            sm:ml-[9rem] sm:mr-[19rem]           <--          640px android phones           -->
+            md:ml-[5rem] md:mr-[5rem]           <--           768px  ipad and tablets                -->
+            lg:ml-[13rem] lg:mr-[13rem]           <--  	      1024px                               -->
+            xl:ml-[18rem] xl:mr-[20rem]            <--        1280px ipad and tablets           -->
+            2xl:ml-[27rem] 2xl:mr-[27rem]        <-- 	      1536px laptop and monitors          -->
+            
+            
+            <!-- bar width -->
+            sm:w-[20rem]
+            md:w-[30rem]
+            lg:w-[30rem]
+            xl:w-[40rem]
+            2xl:w-[40rem]"> 
+             
+                  <div class="flex flex-row">
+                    <div class=" ml-[2.5rem] mt-[5px]" > <img src="./samllprofileimage.svg" alt="smallprofileimage"></div>
+
+                    <div class="text-white text-center ml-[1rem]  mt-[13px]  font- text-lg font-semibold " >Try what make you sleepless</div>
+                    
+                    <div class=" ml-[15rem]  mt-[10px] " > <img src="./Music Wave.svg" alt="music wave"></div>
+                    
+                </div>
+                
+
             </div>
             
             
+            
+            
         </div>
-        <div id="time" class="basis-1/2">10:30</div>
-      </div>
-
+        <div id="time" class=" ml-[4px] mr-[5rem] text-center bg-blue-200">10:30</div>
+    </div>
+    
+    
     
 
+    
+</div>
+
+
+<div id="profile_image" class="flex flex-row  ">
+ 
+    <img  class="size-[500px]
+    sm:ml-[13rem] sm:mt-[2rem]  
+    md:ml-[13rem] md:mt-[2rem] 
+    lg:ml-[21rem] lg:mt-[2rem] 
+    xl:ml-[30rem] xl:mt-[2rem]
+    2xl:ml-[40rem] 2xl:mt-[3rem]
+    " src="./bigprofileimage.svg" alt="big profile image">
+    
+    <div class="text-black 
+    text-6xl
+    font-gimletDisplayNarrow 
+    ml-[1rem] mt-[2rem] 
+    font-light italic 
+    text-left
+    2xl:mt-[3rem] " > UI/UX Designer Developer</div> 
 
 
 </div>
 
+</div>
 
 
 
